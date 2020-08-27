@@ -1,6 +1,11 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+const config = {
   publicRuntimeConfig: {
     GRAPHQL_SERVER_URL: process.env.GRAPHQL_SERVER_URL,
+  },
+  pwa: {
+    dest: "public",
   },
   // async redirects() {
   //   return [
@@ -27,3 +32,5 @@ module.exports = {
   //   ];
   // },
 };
+
+module.exports = withPWA(config);
