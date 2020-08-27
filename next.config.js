@@ -2,10 +2,10 @@ const config = {
   publicRuntimeConfig: {
     GRAPHQL_SERVER_URL: process.env.GRAPHQL_SERVER_URL,
   },
-  redirects: () => [
-    { source: "/en", destination: "/", permanent: true },
-    { source: "/en/:path*", destination: "/:path*", permanent: true },
-  ],
+  // redirects: () => [
+  //   { source: "/en", destination: "/", permanent: true },
+  //   { source: "/en/:path*", destination: "/:path*", permanent: true },
+  // ],
   rewrites: async () => [
     { source: "/ca/:path*", destination: "/ca/:path*" },
     { source: "/de/:path*", destination: "/de/:path*" },
