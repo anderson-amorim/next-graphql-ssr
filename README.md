@@ -1,3 +1,6 @@
+The goal of this this repo is to provide a skeleton project using Next.js, ApolloGraphql v3 and styled-components having Lighthouse v6 in mind.
+The starting point is a perfect Lighthouse score on all topics.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
