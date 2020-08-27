@@ -1,14 +1,14 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import React from "react";
 import Countries from "~/components/Countries";
 import withApollo from "~/lib/withApollo";
 
 const Index = () => (
   <div>
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+    <NextSeo
+      title="Simple Usage Example"
+      description="A short description goes here."
+    />
     <main>
       <Countries />
     </main>
