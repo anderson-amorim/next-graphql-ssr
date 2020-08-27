@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prod": "yarn build && yarn start"
+    "prod": "yarn build && yarn start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@apollo/client": "^3.1.3",
@@ -23,6 +24,7 @@
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.47",
     "@types/styled-components": "^5.1.2",
+    "next-sitemap": "^1.1.6",
     "typescript": "^4.0.2"
   }
 }
