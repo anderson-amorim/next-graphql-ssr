@@ -1,8 +1,10 @@
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import withApollo from "~/lib/withApollo";
 import { useRouter } from "next/router";
 
-const Blog = () => {
+type Props = { value: string };
+
+const Blog: NextPage<Props> = ({ value }) => {
   const { query } = useRouter();
   return (
     <div>
@@ -11,8 +13,26 @@ const Blog = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>Blog page ({query.lang})</main>
+      <footer>Static value is: {value}</footer>
     </div>
   );
 };
 
-export default withApollo({ ssr: true })(Blog);
+type Paths = { lang: string };
+
+export const getStaticPaths: GetStaticPaths<Paths> = async () => {
+  const languages = ["pt", "en", "es", "ja", "ko"];
+  const paths = languages.map((lang) => ({
+    params: { lang },
+  }));
+  return { paths, fallback: true };
+};
+
+export const getStaticProps: GetStaticProps<Props, Paths> = async ({
+  params,
+}) => {
+  const value = params?.lang ?? "";
+  return { props: { value }, revalidate: 10 };
+};
+
+export default Blog;

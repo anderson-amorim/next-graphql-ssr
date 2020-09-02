@@ -1,0 +1,8 @@
+query CountriesQuery {
+  countries(filter: { continent: { eq: "EU" } }) {
+    code
+    name
+    native
+    emoji
+  }
+}

@@ -1,0 +1,37 @@
+schema: https://countries.trevorblades.com
+documents: './src/**/*.graphql'
+generates:
+  src/shared/generated/schema.ts:
+    plugins:
+      - typescript
+      - add:
+          content: |
+            // ⚠️⚠️⚠️⚠️ DO NOT EDIT ⚠️⚠️⚠️⚠️
+            // This file was automatically generated, run yarn gen:gql to update it
+            /* eslint-disable */
+    config:
+      namingConvention: keep
+      enumsAsTypes: true
+  src/client/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .gen.tsx
+      baseTypesPath: ../shared/generated/schema.ts
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
+      - add:
+          content: |
+            // ⚠️⚠️⚠️⚠️ DO NOT EDIT ⚠️⚠️⚠️⚠️
+            // This file was automatically generated, run yarn gen:gql to update it
+            /* eslint-disable */
+    config:
+      withHOC: false
+      withComponent: false
+      withHooks: true
+      reactApolloVersion: 3
+      namingConvention: keep
+      dedupeOperationSuffix: true
+      preResolveTypes: true
+      addDocBlocks: false
+      gqlImport: '@apollo/client#gql'

@@ -6,14 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prod": "yarn build && yarn start"
+    "prod": "yarn build && yarn start",
+    "prettier": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
+    "eslint": "export NODE_OPTIONS=--max_old_space_size=8192;eslint src/**/* --ext ts,tsx --cache --cache-location '.cache/.eslintcache/'",
+    "gen:gql": "graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.1.3",
     "graphql": "^15.3.0",
     "next": "9.5.2",
     "next-apollo": "^5.0.0",
-    "next-pwa": "^3.1.3",
     "next-seo": "^4.7.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -21,9 +23,27 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^1.17.6",
+    "@graphql-codegen/cli": "^1.17.6",
+    "@graphql-codegen/near-operation-file-preset": "^1.17.6",
+    "@graphql-codegen/time": "^1.17.6",
+    "@graphql-codegen/typescript": "^1.17.6",
+    "@graphql-codegen/typescript-operations": "^1.17.6",
+    "@graphql-codegen/typescript-react-apollo": "^1.17.6",
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.47",
     "@types/styled-components": "^5.1.2",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "eslint": "^7.8.1",
+    "eslint-plugin-compat": "^3.8.0",
+    "eslint-plugin-immutable": "^1.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-react-perf": "^3.2.4",
+    "eslint-plugin-xss": "^0.1.10",
+    "prettier": "^2.1.1",
     "typescript": "^4.0.2"
   }
 }

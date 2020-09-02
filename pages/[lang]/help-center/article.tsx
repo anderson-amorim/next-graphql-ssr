@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Head from "next/head";
-import withApollo from "~/lib/withApollo";
 import { useRouter } from "next/router";
+import withApollo from "~/shared/withApollo";
 
-const Article = () => {
+const Article: NextPage = () => {
   const { query } = useRouter();
   return (
     <div>

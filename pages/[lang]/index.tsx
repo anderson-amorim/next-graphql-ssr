@@ -1,9 +1,10 @@
-import { NextSeo } from "next-seo";
-import React from "react";
-import Countries from "~/components/Countries";
-import withApollo from "~/lib/withApollo";
+import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import React from 'react';
+import Countries from '~/client/components/Countries';
+import withApollo from '~/shared/withApollo';
 
-const Index = () => (
+const Index: NextPage = ({}) => (
   <div>
     <NextSeo
       title="Simple Usage Example"

@@ -1,14 +1,14 @@
-import { gql, useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import { LazyRender } from "react-lazy-hydration-render";
-import styled from "styled-components";
+import { LazyRender } from 'react-lazy-hydration-render';
+import styled from 'styled-components';
+import usePathLanguage from '~/client/hooks/usePathLanguage';
+import { useCountriesQuery } from './CountriesQuery.gen';
 
 const Countries = () => {
-  const { query } = useRouter();
-  const { data } = useQuery(COUNTRIES_QUERY);
+  const lang = usePathLanguage();
+  const { data } = useCountriesQuery();
   return (
     <div>
-      <Container>European Countries ({query.lang})</Container>
+      <Container>European Countries ({lang})</Container>
       <CountryList>
         <LazyRender>
           {data?.countries?.map(({ code, name, native, emoji }) => (
@@ -21,17 +21,6 @@ const Countries = () => {
     </div>
   );
 };
-
-const COUNTRIES_QUERY = gql`
-  {
-    countries(filter: { continent: { eq: "EU" } }) {
-      code
-      name
-      native
-      emoji
-    }
-  }
-`;
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};

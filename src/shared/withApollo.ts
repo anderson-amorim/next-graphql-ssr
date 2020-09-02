@@ -1,6 +1,6 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { withApollo } from "next-apollo";
-import getConfig from "next/config";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { withApollo } from 'next-apollo';
+import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 

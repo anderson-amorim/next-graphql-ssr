@@ -1,0 +1,6 @@
+**/*.generated.tsx
+**/*.graphql.tsx
+**/*.test.tsx
+**/*.test.ts
+**/*.js
+**/*.d.ts
