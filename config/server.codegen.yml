@@ -1,0 +1,20 @@
+schema: ${GRAPHQL_SERVER_URL}
+documents: './src/server/**/*.graphql'
+generates:
+  src/server/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: ../shared/generated/schema.ts
+    plugins:
+      - typescript-operations
+      - typescript-graphql-request
+      - add:
+          content: |
+            // ⚠️⚠️⚠️⚠️ DO NOT EDIT ⚠️⚠️⚠️⚠️
+            // This file was automatically generated, run yarn gen:gql to update it
+            /* eslint-disable */
+    config:
+      dedupeOperationSuffix: true
+      pureMagicComment: true
+      gqlImport: '@apollo/client#gql'

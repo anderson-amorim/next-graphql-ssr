@@ -1,7 +1,7 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import withApollo from "~/shared/withApollo";
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import withApollo from '~/shared/graphql/withApollo';
 
 const Article: NextPage = () => {
   const { query } = useRouter();

@@ -1,5 +1,5 @@
-schema: https://countries.trevorblades.com
-documents: './src/**/*.graphql'
+schema: ${GRAPHQL_SERVER_URL}
+documents: './src/client/**/*.graphql'
 generates:
   src/shared/generated/schema.ts:
     plugins:
@@ -15,7 +15,7 @@ generates:
   src/client/:
     preset: near-operation-file
     presetConfig:
-      extension: .gen.tsx
+      extension: .generated.ts
       baseTypesPath: ../shared/generated/schema.ts
     plugins:
       - typescript-operations
@@ -34,4 +34,5 @@ generates:
       dedupeOperationSuffix: true
       preResolveTypes: true
       addDocBlocks: false
+      pureMagicComment: true
       gqlImport: '@apollo/client#gql'

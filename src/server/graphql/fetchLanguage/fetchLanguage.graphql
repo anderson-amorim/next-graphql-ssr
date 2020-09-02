@@ -1,0 +1,11 @@
+query fetchLanguage($code: ID!) {
+  language(code: $code) {
+    ...LanguageFragment
+  }
+}
+
+fragment LanguageFragment on Language {
+  code
+  name
+  native
+}

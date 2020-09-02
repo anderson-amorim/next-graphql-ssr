@@ -1,11 +1,11 @@
 import { LazyRender } from 'react-lazy-hydration-render';
 import styled from 'styled-components';
 import usePathLanguage from '~/client/hooks/usePathLanguage';
-import { useCountriesQuery } from './CountriesQuery.gen';
+import { useCountryListQuery } from './CountryListQuery.generated';
 
 const Countries = () => {
   const lang = usePathLanguage();
-  const { data } = useCountriesQuery();
+  const { data } = useCountryListQuery();
   return (
     <div>
       <Container>European Countries ({lang})</Container>

@@ -8,12 +8,15 @@
     "start": "next start",
     "prod": "yarn build && yarn start",
     "prettier": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
-    "eslint": "export NODE_OPTIONS=--max_old_space_size=8192;eslint src/**/* --ext ts,tsx --cache --cache-location '.cache/.eslintcache/'",
-    "gen:gql": "graphql-codegen"
+    "eslint": "export NODE_OPTIONS=--max_old_space_size=8192;eslint src/**/* --ext ts,tsx --cache --cache-location '.cache/.eslintcache/' --config ./config/.eslintrc.js --ignore-path ./config/.eslintignore",
+    "gen:gql": "run-s gen:gql:*",
+    "gen:gql:client": "graphql-codegen --config ./config/client.codegen.yml -r dotenv/config",
+    "gen:gql:server": "graphql-codegen --config ./config/server.codegen.yml -r dotenv/config"
   },
   "dependencies": {
     "@apollo/client": "^3.1.3",
     "graphql": "^15.3.0",
+    "graphql-request": "^3.0.0",
     "next": "9.5.2",
     "next-apollo": "^5.0.0",
     "next-seo": "^4.7.3",
@@ -28,6 +31,7 @@
     "@graphql-codegen/near-operation-file-preset": "^1.17.6",
     "@graphql-codegen/time": "^1.17.6",
     "@graphql-codegen/typescript": "^1.17.6",
+    "@graphql-codegen/typescript-graphql-request": "^2.0.0",
     "@graphql-codegen/typescript-operations": "^1.17.6",
     "@graphql-codegen/typescript-react-apollo": "^1.17.6",
     "@types/node": "^14.6.0",
@@ -43,6 +47,7 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "eslint-plugin-react-perf": "^3.2.4",
     "eslint-plugin-xss": "^0.1.10",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
   }
